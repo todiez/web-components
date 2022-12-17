@@ -34,7 +34,6 @@ const Home = () => {
           <div className="card">
             <h5 className="card-header">{book.title}</h5>
             <div className="card-body">
-              <h5>subtitle</h5>
               <div className="card-text">
                 <table className="table">
                   <tbody>
@@ -50,19 +49,19 @@ const Home = () => {
                     </tr>
                     <tr>
                       <td className="text-success font-weight-bold">Author:</td>
-                      <td>author</td>
+                      <td>{book.author}</td>
                     </tr>
                     <tr>
                       <td className="text-success font-weight-bold">
                         Publisher:
                       </td>
-                      <td>publisher</td>
+                      <td>{book.publisher}</td>
                     </tr>
                     <tr>
                       <td className="text-success font-weight-bold">
                         Description:
                       </td>
-                      <td>description</td>
+                      <td>{book.description}</td>
                     </tr>
                   </tbody>
                 </table>
