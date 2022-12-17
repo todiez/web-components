@@ -31,7 +31,7 @@ function App() {
         <h1>React Components from Main</h1>
         {console.log("DATA: " + data)}
         {loaded &&
-          data.map((book, i) => (
+          data.map((book) => (
             <div>
               <button onClick={handleOnclick} key={book.isbn}>Delete {book.isbn}</button>
 
