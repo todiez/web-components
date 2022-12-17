@@ -4,36 +4,9 @@ import Navbar from "./Navbar";
 import Home from "./Home";
 
 function App() {
-  const [data, setData] = useState(null);
-  const [loaded, setLoaded] = useState(false);
+  
 
-  useEffect(() => {
-    async function getData() {
-      const response = await fetch("http://localhost:3000/books");
-      const json = await response.json();
-      setData(json);
-      setLoaded(true);
-    }
-    getData();
-  }, []);
 
-  const handleDeleteBook = () => {
-    fetch("http://localhost:3000/books/", {
-      method: "DELETE",
-    }).then(() => {
-      console.log("deleted");
-      //reload page
-    });
-  };
-
-  const handleAddBook = () => {
-    console.log("book add function fired");
-    fetch("http://localhost:3000/books", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-  };
 
   return (
     //JSX inside here
