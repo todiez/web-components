@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./index.css";
 import Navbar from "./Navbar";
+import Home from "./Home";
 
 function App() {
   const [data, setData] = useState(null);
@@ -38,7 +39,10 @@ function App() {
     //JSX inside here
     <div className="App">
       <Navbar />
-      <h1>greeting from App</h1>
+      <div className="content">
+        <Home />
+      </div>
+
     </div>
 
     // <div className="container">
