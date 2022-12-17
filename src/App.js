@@ -9,31 +9,36 @@ function App() {
     async function getData() {
       const response = await fetch("http://localhost:3000/books");
       const json = await response.json();
-      console.log(json);
       setData(json);
       setLoaded(true);
     }
     getData();
   }, []);
 
-  const handleOnclick = () => {
-      console.log('delete function fired')
-      fetch('http://127.0.0.1:5500/WebComponents' + data.isbn, {
+  const handleDeleteBook = () => {
+    
+      fetch('http://localhost:3000/books/' , {
           method: 'DELETE'
       }).then(() => {
           console.log('deleted');
+          //reload page
       });
   };
+
+  const handleAddBook = () => {
+    console.log('book add function fired');
+  }
 
   return (
     <>
       <div className="container">
-        <h1>React Components from Main</h1>
-        {console.log("DATA: " + data)}
+        <h1>React Components</h1>
+        <button onClick={handleAddBook}>Add Book</button>
+        
         {loaded &&
           data.map((book) => (
             <div>
-              <button onClick={handleOnclick} key={book.isbn}>Delete {book.isbn}</button>
+              <button onClick={handleDeleteBook} key={book.isbn}>Delete {book.isbn}</button>
 
               <div className="card">
                 <h5 className="card-header">{book.title}</h5>
@@ -69,8 +74,6 @@ function App() {
                   </p>
                 </div>
               </div>
-
-             
             </div>
           ))}
       </div>
