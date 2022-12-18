@@ -1,8 +1,7 @@
-const BookList = ({books}) => {
-  //const books = props.books;
-
+const BookList = ({ books, listTitle, handleDeleteBook }) => {
   return (
     <div className="book-list">
+      <h1>{listTitle}:</h1>
       {books.map((book) => (
         <div className="book-preview" key={book.isbn}>
           <div className="card">
@@ -39,6 +38,15 @@ const BookList = ({books}) => {
                     </tr>
                   </tbody>
                 </table>
+                <div>
+                  <button
+                    type="button"
+                    className="btn btn-outline-danger"
+                    onClick={() => handleDeleteBook(book.isbn)}
+                  >
+                    Delete
+                  </button>
+                </div>
               </div>
             </div>
           </div>
