@@ -72,22 +72,22 @@
   cursor: pointer;
 }
 
-/* create new blog form */
-.create {
+/* addbook new blog form */
+.addbook {
   max-width: 400px;
   margin: 0 auto;
   text-align: center;
 }
-.create label {
+.addbook label {
   text-align: left;
   display: block;
 }
-.create h2 {
+.addbook h2 {
   font-size: 20px;
   color: #f1356d;
   margin-bottom: 30px;
 }
-.create input, .create textarea, .create select {
+.addbook input, .addbook textarea, .addbook select {
   width: 100%;
   padding: 6px 10px;
   margin: 10px 0;

@@ -1,18 +1,27 @@
-import React, { useEffect, useState } from "react";
 import "./index.css";
 import Navbar from "./Navbar";
 import Home from "./Home";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import AddBook from "./AddBook";
 
 function App() {
-  
   return (
     //JSX inside here
-    <div className="App">
-      <Navbar />
-      <div className="content">
-        <Home />
+    <Router>
+      <div className="App">
+        <Navbar />
+        <div className="content">
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/addbook">
+              <AddBook />
+            </Route>
+          </Switch>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
