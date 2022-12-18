@@ -1,4 +1,4 @@
-const BookList = ({ books, listTitle, handleDeleteBook }) => {
+const BookList = ({ books, listTitle, handleDeleteDOM, handleDeleteJSON }) => {
   return (
     <div className="book-list">
       <h1>{listTitle}:</h1>
@@ -42,9 +42,16 @@ const BookList = ({ books, listTitle, handleDeleteBook }) => {
                   <button
                     type="button"
                     className="btn btn-outline-danger"
-                    onClick={() => handleDeleteBook(book.isbn)}
+                    onClick={() => handleDeleteDOM(book.isbn)}
                   >
-                    Delete
+                    Delete from DOM only
+                  </button>
+                  <button
+                    type="button"
+                    className="btn btn-outline-danger"
+                    onClick={() => handleDeleteJSON(book.isbn)}
+                  >
+                    Delete from JSON Data
                   </button>
                 </div>
               </div>
