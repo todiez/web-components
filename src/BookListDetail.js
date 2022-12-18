@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
+
 
 const BookList = ({ books, listTitle, handleDeleteDOM, handleDeleteJSON }) => {
   return (
     <div className="book-list">
-      <h1>{listTitle}:</h1>
+    
+
       {books.map((book) => (
         <div className="book-preview" key={book.isbn}>
-          <Link to={`/books/${book.isbn}`}>
             <div className="card">
               <h5 className="card-header">{book.title}</h5>
               <div className="card-body">
@@ -45,11 +45,18 @@ const BookList = ({ books, listTitle, handleDeleteDOM, handleDeleteJSON }) => {
                       </tr>
                     </tbody>
                   </table>
-               
+                  <div>
+                    <button
+                      type="button"
+                      className="btn btn-outline-danger"
+                      onClick={() => handleDeleteJSON(book.isbn)}
+                    >
+                      Delete from JSON Data
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Link>
+            </div>  
         </div>
       ))}
     </div>

@@ -1,12 +1,26 @@
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import useFetch from "./useFetch";
-import BookList from "./BookList";
+import BookListDetail from "./BookListDetail";
 
 const BookDetail = () => {
   const { isbn } = useParams();
   const { data, error, loaded } = useFetch("http://localhost:8000/books/");
+  const history = useHistory();
 
   const singleBook = data && data.filter((book) => book.isbn === isbn);
+
+
+  const handleDeleteJSON = () => {
+    console.log('delete button pressed');
+    console.log(singleBook);
+
+    fetch('http://localhost:8000/books/' + singleBook[0].id, {
+      method: 'DELETE'
+    }).then(() =>{
+      history.push('/');
+    })
+    
+  }
 
   return (
     <div className="book-details">
@@ -14,11 +28,11 @@ const BookDetail = () => {
       {!loaded && <div>Loading...</div>}
       {error && <div>{error}</div>}
       {data && (
-        <BookList
+        <BookListDetail
           books={singleBook}
           // handleDeleteDOM={handleDeleteDOM}
-          // handleDeleteJSON={handleDeleteJSON}
-          listTitle="My Books"
+          handleDeleteJSON={handleDeleteJSON}
+        
         />
       )}
     </div>

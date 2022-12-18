@@ -1,6 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-
-
 /* base styles */
 * {
   margin: 0;
@@ -64,12 +62,8 @@
   margin: 20px 0;
 }
 .book-details button {
-  background: #f1356d;
-  color: #fff;
-  border: 0;
-  padding: 8px;
-  border-radius: 8px;
-  cursor: pointer;
+  color: #f1356d;
+  margin-right : 10px;
 }
 
 /* addbook new blog form */
